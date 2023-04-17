@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use \App\Http\Controllers\userController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('get_users', [userController::class, 'index']); //accede al metodo index en el controllador
+Route::resource('get_users', userController::class); //establece el recurso a mostrar
+
+Route::resource('user', userController::class);
+
+
+
