@@ -70,7 +70,12 @@ class userController extends Controller
     public function destroy(string $id)
     {
         $usuario= user::find($id);
-        $usuario->delete(); 
+        $result=$usuario->delete();  //metodo para executar el request
+        if ($result) {
+            return "La data ha sido eliminada con exito";
+        } else {
+            return "fail";
+        }
 
     }
 
